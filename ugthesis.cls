@@ -120,6 +120,8 @@
 
 \renewcommand*{\abstractname}{ABSTRACT}
 \newcommand*{\acknowledgename}{Acknowledgments}
+\newcommand*{\algorithmname}{Algorithm}
+\newcommand*{\listalgorithmname}{List of Algorithms}
 
 %%
 %% The University of Guelph Thesis requirements state that there must be at
@@ -189,6 +191,19 @@
 \fi
 
 %%
+%% Algorithm floating environment.  This replaces the float defined in the 
+%% algorithm package with one that is based off of the memoir class.  It 
+%% allows for less code to be pulled into the LaTeX document and works a bit 
+%% better with the rest of the floats and lists.
+%%
+
+\newfloat{algorithm}{loa}{\algorithmname}
+\newfixedcaption{\falgcaption}{algorithm}
+\newlistentry{algorithm}{loa}{0}
+
+\newlistof{listofalgorithms}{loa}{\listalgorithmname}
+
+%%
 %% The memoir class by default numbers chapters and sections only.  Also only
 %% chapters and sections are included in the table of contents.  For a Thesis
 %% everything from chaters to subsubsections needs to be numbered and included
@@ -223,6 +238,12 @@
 \renewcommand{\listoffigures}{%
 	\clearpage
 	\OldListoffigures
+}
+
+\let\OldListofalgorithms\listofalgorithms
+\renewcommand{\listofalgorithms}{%
+	\clearpage
+	\OldListofalgorithms
 }
 
 %%
