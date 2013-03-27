@@ -114,6 +114,18 @@
 \newcommand*{\degreemonth}[1]{\def\@degreemonth{#1}}
 \newcommand*{\degreeyear}[1]{\def\@degreeyear{#1}}
 
+%%
+%% Initial values for all of the fields needed on the title page and abstract.
+%%
+
+\author{John Q. Student}
+\title{Title of Thesis}
+\degree{Name of Degree}
+\degreeprogram{Name of Program}
+\degreemonth{January}
+\degreeyear{0000}
+\advisor{Dr. J. Advisor}
+
 %% 
 %% Default names of lists and environments defined in this class.
 %%
