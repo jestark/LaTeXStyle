@@ -317,22 +317,24 @@
 
 \renewenvironment{abstract}{
 	\thispagestyle{empty}
-	\begin{center}
-		\abstractname \par
-		\vspace{36bp}
-		\textbf{\MakeUppercase{\@title}} \par
-		\vspace{36bp}
-	\end{center}
-	\begin{minipage}[t]{0.7\textwidth}
-		\textbf{\@author} \\
-		\textbf{University of Guelph, \@degreeyear} \\
-	\end{minipage}
-	\begin{minipage}[t]{0.29\textwidth}
-		\textbf{Advisor:} \\
-		\textbf{\@advisor} \\
-	\end{minipage}
+	\begin{SingleSpace}
+		\begin{center}
+			\abstractname \\
+			\vspace{36bp}
+			\textbf{\MakeUppercase{\@title}} \\
+			\vspace{36bp}
+		\end{center}
+		\begin{minipage}[t]{0.7\textwidth}
+			\textbf{\@author} \\
+			\textbf{University of Guelph, \@degreeyear} \\
+		\end{minipage}
+		\begin{minipage}[t]{0.29\textwidth}
+			\textbf{Advisor:} \\
+			\textbf{\@advisor} \\
+		\end{minipage}
 
-	\vspace{36bp}
+		\vspace{36bp}
+	\end{SingleSpace}
 }{\newpage}
 
 %%
