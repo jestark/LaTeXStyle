@@ -27,7 +27,8 @@
 \ProvidesClass{ugthesis}[2013/03/22 v1.0 University of Guelph Thesis Class]
 
 %%
-%% Conditionals needed to control line spacing and margin widths
+%% Conditionals needed to control line spacing, margin widths and title font
+%% size
 %%
 
 \newif\ifwidemargins
@@ -38,6 +39,9 @@
 
 \newif\ifchangesp
 	\changespfalse
+
+\newif\ifbigtitle
+	\bigtitletrue
 
 %%
 %% Options for the class
@@ -77,9 +81,9 @@
 
 \DeclareOption{draft}{\PassOptionsToClass{\CurrentOption}{memoir}}
 \DeclareOption{final}{\PassOptionsToClass{\CurrentOption}{memoir}}
-\DeclareOption{10pt}{\PassOptionsToClass{\CurrentOption}{memoir}}
-\DeclareOption{11pt}{\PassOptionsToClass{\CurrentOption}{memoir}}
-\DeclareOption{12pt}{\PassOptionsToClass{\CurrentOption}{memoir}}
+\DeclareOption{10pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitletrue}
+\DeclareOption{11pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitletrue}
+\DeclareOption{12pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitlefalse}
 \DeclareOption{single}{\changespfalse\doublespfalse}
 \DeclareOption{onehalf}{\changesptrue\doublespfalse}
 \DeclareOption{double}{\changesptrue\doublesptrue}
@@ -200,6 +204,21 @@
 	\addtolength{\textheight}{-\uppermargin}
 	\addtolength{\textheight}{-\lowermargin}
 	\addtolength{\textheight}{-\footskip}
+\fi
+
+%%
+%% The University of Guelph Thesis requirements state the the title of the 
+%% thesis will be set in a 14pt font.  Since this class allows for 10pt, 11pt
+%% and 12pt base fonts the title size must be set approptiately.  For to 10pt
+%% and 11pt base font, the \Large font size give a 14pt title.  For the 12pt
+%% font the \large font size give the 14pt title.  Using \Large with a 12pt
+%% base font would give a 17pt title, which is too big.
+%%
+
+\ifbigtitle
+	\newcommand{\TFSize}{\Large}
+\else
+	\newcommand{\TFSize}{\large}
 \fi
 
 %%
@@ -332,32 +351,40 @@
 {\newpage}
 
 %%
-%% Title Page:  Formatted to the requirements specified by for a University 
-%% of Guelph Thesis.
+%% The University of Guelph Thesis requirements specify the title page for a
+%% this via a sample Microsoft word document.  The code below aligns the text 
+%% exactly with the template for most common cases.  If the Thesis has a short
+%% title (one line) or it typeset with a 10pt font then the verical spacing 
+%% will be off a bit, but should be good enough.  If the title is very long
+%% (3 or more lines) then it will probably have issues with vertical spacing
+%% as well.  The spacing id specified using relative spacing, rather than
+%% absolute spacing.  Using relative spacing allows the titlepage to be 
+%% typeset properly on the ebook version as well as the full sized version.
 %%
 
 \renewcommand{\maketitle}{%
 \begingroup
 	\thispagestyle{empty}
-	\let\footnotesize\small
-	\let\footnoterule\relax
-	\let \footnote \thanks
 	\begin{SingleSpace}
 		\begin{center}
 			\bfseries
-			\null\vfil
-			{\Large \@title \par}%
-			\vfill
-			\bigskip by \par \bigskip {\@author} \par
-			\vspace{84bp}
-			A Thesis \par presented to \par
-			The University of Guelph \par 
-			\vspace{66bp}
-			In partial fulfilment of requirements \par for the degree of \par
-			{\@degree} \par in \par {\@degreeprogram} \par
-			\vfill
-			Guelph, Ontario, Canada \par \bigskip
-			\copyright \vspace{0.1in} {\@author, \@degreemonth, \@degreeyear} \par
+			\vspace*{\stretch{-2.5}}
+			{\TFSize \@title} \par
+			\vspace{\stretch{18}}
+			by \\ \bigskip {\@author} \par
+			\vspace{\stretch{27}}
+			A Thesis \\
+			presented to \\
+			The University of Guelph \par
+			\vspace{\stretch{21}}
+			In partial fulfilment of requirements \\
+			for the degree of \\
+			{\@degree} \\
+			in \\
+			{\@degreeprogram} \par
+			\vspace{\stretch{28}}
+			Guelph, Ontario, Canada \\ \bigskip
+			\copyright \ {\@author, \@degreemonth, \@degreeyear}
 		\end{center}
 	\end{SingleSpace}
 \endgroup
