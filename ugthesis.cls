@@ -49,7 +49,7 @@
 %% Quality Options:  These are options of the underlying memoir class.  They
 %% are just passed though to it, with no further processing.
 %%
-%% draft - Generate a draft document.  Mark overfull hboxes, and outline graphcs.
+%% draft - Generate a draft document.  Mark overfull hboxes, and outline graphics.
 %% final - Generate a final document.  This is usually what is desired.
 %%
 %% Font Size options:  These are options of the underlying memoir class.  They
