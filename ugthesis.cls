@@ -165,6 +165,14 @@
 \nonzeroparskip
 
 %%
+%% Contract the list spacing.  By default the lists require too much space.
+%% The memoir class provides an option for setting a much tighter inter-item
+%% spacing in the lists.  Make this default for the thesis.
+%%
+
+\tightlists
+
+%%
 %% Most LaTeX document classes, including memoir, single space the document 
 %% by default.  If the user specifis a non-default line spacing then it will
 %% be set here.  The default is to do nothing.
