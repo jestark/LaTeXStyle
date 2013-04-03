@@ -372,27 +372,47 @@
 %% typeset properly on the ebook version as well as the full sized version.
 %%
 
+%% Vertical spacing between the elements on the page is a bit different for
+%% wide vs. narrow margins.
+
+\ifwidemargins
+	\newcommand{\TPTopSpacing}{10}
+	\newcommand{\TPAuthorSpacing}{16}
+	\newcommand{\TPThesisSpacing}{24}
+	\newcommand{\TPDegreeSpacing}{19}
+	\newcommand{\TPCopyrightSpacing}{30}
+\else
+	\newcommand{\TPTopSpacing}{-2.5}
+	\newcommand{\TPAuthorSpacing}{18}
+	\newcommand{\TPThesisSpacing}{27}
+	\newcommand{\TPDegreeSpacing}{21}
+	\newcommand{\TPCopyrightSpacing}{28}
+\fi
+
+%% Override the maketitle command with one that creates the properly 
+%% formatted titlepage
+
 \renewcommand{\maketitle}{%
 \begingroup
 	\thispagestyle{empty}
 	\begin{SingleSpace}
 		\begin{center}
 			\bfseries
-			\vspace*{\stretch{-2.5}}
+			\vspace*{\stretch{\TPTopSpacing}}
 			{\TFSize \@title} \par
-			\vspace{\stretch{18}}
+			\vspace{\stretch{\TPAuthorSpacing}}
 			by \\ \bigskip {\@author} \par
-			\vspace{\stretch{27}}
+			\vspace{\stretch{\TPThesisSpacing}}
 			A Thesis \\
 			presented to \\
 			The University of Guelph \par
-			\vspace{\stretch{21}}
+			\vspace{\stretch{\TPDegreeSpacing}}
 			In partial fulfilment of requirements \\
 			for the degree of \\
 			{\@degree} \\
 			in \\
 			{\@degreeprogram} \par
-			\vspace{\stretch{28}}
+			\vspace{\stretch{\TPCopyrightSpacing}}
 			Guelph, Ontario, Canada \\ \bigskip
 			\copyright \ {\@author, \@degreemonth, \@degreeyear}
 		\end{center}
