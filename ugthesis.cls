@@ -360,6 +360,25 @@
 }
 {\newpage}
 
+
+%%
+%% Dedication Environment.  The memoir class doesn't provide a dedication 
+%% environment, so one is added here.  The University of Guelph Thesis 
+%% requirments are silent as to the format of the dedication.  Usually a
+%% dedication is centred vertically and horizontally on the page, so that has
+%% been implemented here.
+%%
+
+\newenvironment{dedication}{%
+	\clearpage%
+	\vspace*{\stretch{1}}%
+	\begin{center}%
+}
+{%
+	\end{center}%
+	\vspace{\stretch{1}}%
+}
+
 %%
 %% The University of Guelph Thesis requirements specify the title page for a
 %% this via a sample Microsoft word document.  The code below aligns the text 
