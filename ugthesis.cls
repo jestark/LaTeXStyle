@@ -157,20 +157,27 @@
 \raggedbottom
 
 %%
+%% Contract the list spacing.  By default the lists require too much space.
+%% The memoir class provides an option for setting a much tighter inter-item
+%% spacing in the lists.  Make this default for the thesis.  The tight list 
+%% spacing must be set before the paragraph spacing is changed, otherwise the
+%% paragrph seperation gets added to the list and negates the list spacing 
+%% change.  The behaviour of the pagagraph spacing relative to the lists is by
+%% design.  So some may consider the fact that changing the list spacing before
+%% the paragraph spacing results in tight lists a bug.  If this ``bug'' ever 
+%% gets fixed then we should be able to get the tight list spacing by overriding
+%% the \setnzplist macro and setting to to a no-op.
+%%
+
+\tightlists
+
+%%
 %% The Univerisity of Guelph Thesis requiements state that there should be a 
 %% blank line between paragraphs.  The memoir class provides an easy way to do
 %% this with \nonzeroparskip.
 %%
 
 \nonzeroparskip
-
-%%
-%% Contract the list spacing.  By default the lists require too much space.
-%% The memoir class provides an option for setting a much tighter inter-item
-%% spacing in the lists.  Make this default for the thesis.
-%%
-
-\tightlists
 
 %%
 %% Most LaTeX document classes, including memoir, single space the document 
