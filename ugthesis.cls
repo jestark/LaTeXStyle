@@ -95,7 +95,7 @@
 \ExecuteOptions{10pt,final,single,modern}
 \ProcessOptions\relax
 
-\LoadClass[openany,oneside,titlepage]{memoir}
+\LoadClass[openany,oneside]{memoir}
 
 %%
 %% Commands defined by this class.  They should all occur in the preamble.  
