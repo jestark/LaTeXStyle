@@ -151,9 +151,9 @@
 %% good practise to add it with the other two.
 %%
 
-\brokenpenalty=9999
-\clubpenalty=9999
-\widowpenalty=9999
+\brokenpenalty=10000
+\clubpenalty=10000
+\widowpenalty=10000
 \raggedbottom
 
 %%
