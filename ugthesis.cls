@@ -60,19 +60,19 @@
 %% 12pt - set the normal font size to 12pt
 %%
 %% Spacing options:  These set the spacing for the main test of the document.
-%% Floats, the titlepage and footnote are always single spaced.
+%% Floats, the title page and footnote are always single spaced.
 %%
 %% single  - Single space the document
 %% onehalf - Use one and a half spacing for the document
 %% double  - Double space the document.
 %%
-%% Layout Options:  These options control the pagesize and the layout of the 
-%% document.  The pagesize will be passed to the memoir class.
+%% Layout Options:  These options control the page size and the layout of the 
+%% document.  The page size will be passed to the memoir class.
 %%
 %% ebook       - Format for an ereader.  6x9 paper and 1in margins.
 %% modern      - Use letter paper and LaTeX default margins.
 %% traditional - Use letter paper and the more traditional margins for a 
-%%               thesis.  The margines will be 1.5in on the left and 1in on 
+%%               thesis.  The margins will be 1.5in on the left and 1in on 
 %%               the top, right and bottom.
 %%
 %% The default values are:  final, 10pt, single and modern.  Any option not 
@@ -99,15 +99,15 @@
 
 %%
 %% Commands defined by this class.  They should all occur in the preamble.  
-%% All are manditory.
+%% All are mandatory.
 %%
-%% \advisor       - The name of the students advisor.  For multiple advisors, 
-%%                  enter both names, seperated by a line break.  Used on the
+%% \advisor       - The name of the students advisor.  For multiple advisers, 
+%%                  enter both names, separated by a line break.  Used on the
 %%                  abstract.
 %% \degree        - The name of the degree that will be conferred.  Used on 
 %%                  the title page.
 %% \degreeprogram - The students program.  Used on the title page.
-%% \degreemonth   - The month in which the dregee will be conferred.  Should 
+%% \degreemonth   - The month in which the degree will be conferred.  Should 
 %%                  be spelled out in full.  Used on the title page.
 %% \degreeyear    - The year in which the degree will be conferred.  Used on
 %%                  the title page and abstract.
@@ -135,19 +135,19 @@
 %%
 
 \renewcommand*{\abstractname}{ABSTRACT}
-\newcommand*{\acknowledgename}{Acknowledgments}
+\newcommand*{\acknowledgename}{Acknowledgements}
 \newcommand*{\algorithmname}{Algorithm}
 \newcommand*{\listalgorithmname}{List of Algorithms}
 
 %%
 %% The University of Guelph Thesis requirements state that there must be at
-%% least two lines of teext between the a heading and the bottom of a page.  
+%% least two lines of text between the a heading and the bottom of a page.  
 %% They also state that a page may not end wit a hyphen.  \clubpenalty will
 %% enforce the minimum of two lines of text rule.  \brokenpenalty will 
 %% make sure that the page doesn't end in a hyphen.  \ragged bottom, gives
 %% latex some room to work with these requirements.  \widowpenalty will cause
 %% latex to not put the last line of a paragraph at the top of a new page.  It
-%% isn't explicity required for a Guelph thesis, but it's generally considered
+%% isn't explicit required for a Guelph thesis, but it's generally considered
 %% good practise to add it with the other two.
 %%
 
@@ -161,18 +161,18 @@
 %% The memoir class provides an option for setting a much tighter inter-item
 %% spacing in the lists.  Make this default for the thesis.  The tight list 
 %% spacing must be set before the paragraph spacing is changed, otherwise the
-%% paragrph seperation gets added to the list and negates the list spacing 
-%% change.  The behaviour of the pagagraph spacing relative to the lists is by
-%% design.  So some may consider the fact that changing the list spacing before
-%% the paragraph spacing results in tight lists a bug.  If this ``bug'' ever 
-%% gets fixed then we should be able to get the tight list spacing by overriding
-%% the \setnzplist macro and setting to to a no-op.
+%% paragraph separation gets added to the list and negates the list spacing 
+%% change.  The behaviour of the paragraph spacing relative to the lists is by
+%% design.  So some may consider the fact that changing the list spacing 
+%% before the paragraph spacing results in tight lists a bug.  If this 
+%% ``bug'' ever gets fixed then we should be able to get the tight list 
+%% spacing by overriding the \setnzplist macro and setting to to a no-op.
 %%
 
 \tightlists
 
 %%
-%% The Univerisity of Guelph Thesis requiements state that there should be a 
+%% The University of Guelph Thesis requirements state that there should be a 
 %% blank line between paragraphs.  The memoir class provides an easy way to do
 %% this with \nonzeroparskip.
 %%
@@ -181,7 +181,7 @@
 
 %%
 %% Most LaTeX document classes, including memoir, single space the document 
-%% by default.  If the user specifis a non-default line spacing then it will
+%% by default.  If the user specifies a non-default line spacing then it will
 %% be set here.  The default is to do nothing.
 %%
 
@@ -194,7 +194,7 @@
 \fi
 
 %%
-%% Set wide margins.  If wide margines are turned on by the options then they
+%% Set wide margins.  If wide margins are turned on by the options then they
 %% will be set here.  The procedure was adapted from the manual for the memoir
 %% class.
 %%
@@ -224,7 +224,7 @@
 %%
 %% The University of Guelph Thesis requirements state the the title of the 
 %% thesis will be set in a 14pt font.  Since this class allows for 10pt, 11pt
-%% and 12pt base fonts the title size must be set approptiately.  For to 10pt
+%% and 12pt base fonts the title size must be set appropriately.  For to 10pt
 %% and 11pt base font, the \Large font size give a 14pt title.  For the 12pt
 %% font the \large font size give the 14pt title.  Using \Large with a 12pt
 %% base font would give a 17pt title, which is too big.
@@ -252,8 +252,8 @@
 %%
 %% The memoir class by default numbers chapters and sections only.  Also only
 %% chapters and sections are included in the table of contents.  For a Thesis
-%% everything from chaters to subsubsections needs to be numbered and included
-%% in the table of contents.
+%% everything from chapters to subsubsections needs to be numbered and 
+%% included in the table of contents.
 %%
 
 \setsecnumdepth{subsubsection}
@@ -264,7 +264,7 @@
 %% require a new page.  For a Thesis, all of these must start on a new page.
 %% Each command is overridden by a version that calls clear page, which 
 %% forces a page break if necessary, then calls the original command.  In the
-%% case of the table of contents the starrd version is used to keep the the 
+%% case of the table of contents the stared version is used to keep the the 
 %% table of contents from being listed in the table of contents.
 %%
 
@@ -293,20 +293,21 @@
 }
 
 %%
-%% The University of Guelph Thesis requierment state that the frontmatter
+%% The University of Guelph Thesis requirement state that the front matter
 %% should be numbered using lowercase roman numerals, with the page number in
-%% the top right corner.  The mainmatter should be numbered in arabic numerals,
-%% with the number placed in the top centre or bottom centre position.  The
-%% frontmatter and mainmatter commands handle the conversion between roman and
-%% arabic numerals, however they don't handle the location of the page numbers.
+%% the top right corner.  The main matter should be numbered in Arabic 
+%% numerals, with the number placed in the top centre or bottom centre
+%% position.  The front matter and main matter commands handle the conversion
+%% between roman and Arabic numerals, however they don't handle the location 
+%% of the page numbers.
 %% 
-%% The frontmatter and main mattercommands are overridden here to switch the
+%% The front matter and main matter commands are overridden here to switch the
 %% position of the page numbers before calling the original command.  The 
 %% memoir class provides a ``simple'' page style which works for the 
-%% frontmatter, and a ``plain'' page style that meets the needs of the 
-%% mainmatter.  Memoir uses an empty page by default for new chapters.  For a
-%% Thesis it needs to be set to match the page style of the surrunding pages 
-%% in document.  The Contents and Lists in the frontmatter are implemented as
+%% front matter, and a ``plain'' page style that meets the needs of the 
+%% main matter.  Memoir uses an empty page by default for new chapters.  For a
+%% Thesis it needs to be set to match the page style of the surrounding pages 
+%% in document.  The Contents and Lists in the front matter are implemented as
 %% chapters.
 %%
 
@@ -325,9 +326,9 @@
 }
 
 %%
-%% Redefined abstract environment.  The university of Guelph, specifis a 
+%% Redefined abstract environment.  The university of Guelph, specifies a 
 %% specific format for the abstract.  Memoirs abstract environment has to be
-%% replaced with one that meets the university's requirments.
+%% replaced with one that meets the university's requirements.
 %%
 
 \renewenvironment{abstract}{
@@ -355,7 +356,7 @@
 %%
 %% Acknowledgements environment.  The memoir class doesn't provide an 
 %% acknowledgements environment, so one is added here.  It typesets the word
-%% ``Acknowedgements'' in bold at the top centre of the page followed by 
+%% ``Acknowledgements'' in bold at the top centre of the page followed by 
 %% three blank lines, and the content of the environment.
 %%
 
@@ -371,7 +372,7 @@
 %%
 %% Dedication Environment.  The memoir class doesn't provide a dedication 
 %% environment, so one is added here.  The University of Guelph Thesis 
-%% requirments are silent as to the format of the dedication.  Usually a
+%% requirements are silent as to the format of the dedication.  Usually a
 %% dedication is centred vertically and horizontally on the page, so that has
 %% been implemented here.
 %%
@@ -390,11 +391,11 @@
 %% The University of Guelph Thesis requirements specify the title page for a
 %% this via a sample Microsoft word document.  The code below aligns the text 
 %% exactly with the template for most common cases.  If the Thesis has a short
-%% title (one line) or it typeset with a 10pt font then the verical spacing 
+%% title (one line) or it typeset with a 10pt font then the vertical spacing 
 %% will be off a bit, but should be good enough.  If the title is very long
 %% (3 or more lines) then it will probably have issues with vertical spacing
 %% as well.  The spacing id specified using relative spacing, rather than
-%% absolute spacing.  Using relative spacing allows the titlepage to be 
+%% absolute spacing.  Using relative spacing allows the title page to be 
 %% typeset properly on the ebook version as well as the full sized version.
 %%
 
@@ -416,7 +417,7 @@
 \fi
 
 %% Override the maketitle command with one that creates the properly 
-%% formatted titlepage
+%% formatted title page
 
 \renewcommand{\maketitle}{%
 \begingroup
