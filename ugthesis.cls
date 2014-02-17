@@ -326,6 +326,13 @@
 }
 
 %%
+%% The settings for mainmatter should be default.
+%%
+
+\pagestyle{plain}
+\aliaspagestyle{chapter}{plain}
+
+%%
 %% Redefined abstract environment.  The university of Guelph, specifies a 
 %% specific format for the abstract.  Memoirs abstract environment has to be
 %% replaced with one that meets the university's requirements.
