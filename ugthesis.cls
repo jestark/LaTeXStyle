@@ -114,6 +114,7 @@
 
 \LoadClass[oneside]{memoir}
 
+\RequirePackage[hyphens, obeyspaces, spaces]{url}
 \RequirePackage{hyperref}
 
 %%
