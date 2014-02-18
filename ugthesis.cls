@@ -24,7 +24,7 @@
 %% OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ugthesis}[2013/03/22 v1.0 University of Guelph Thesis Class]
+\ProvidesClass{ugthesis}[2014/02/18 v1.1 University of Guelph Thesis Class]
 
 %%
 %% Conditionals needed to control line spacing, margin widths and title font
