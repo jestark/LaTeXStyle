@@ -43,6 +43,18 @@
 \newif\ifbigtitle
 	\bigtitletrue
 
+\newif\iffinal
+	\finalfalse
+
+\newif\ifcolourlinks
+	\colourlinkstrue
+
+\newif\ifthesissubject
+	\thesissubjectfalse
+
+\newif\ifthesiskeywords
+	\thesiskeywordsfalse
+
 %%
 %% Options for the class
 %%
@@ -58,6 +70,10 @@
 %% 10pt - set the normal font size to 10pt
 %% 11pt - set the normal font size to 11pt
 %% 12pt - set the normal font size to 12pt
+%%
+%% Hyperlink formatting options:
+%%
+%% boxlink - draw a box around the hyperlinks instead of colouring the text.
 %%
 %% Spacing options:  These set the spacing for the main test of the document.
 %% Floats, the title page and footnote are always single spaced.
@@ -80,10 +96,11 @@
 %%
 
 \DeclareOption{draft}{\PassOptionsToClass{\CurrentOption}{memoir}}
-\DeclareOption{final}{\PassOptionsToClass{\CurrentOption}{memoir}}
+\DeclareOption{final}{\PassOptionsToClass{\CurrentOption}{memoir}\finaltrue}
 \DeclareOption{10pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitletrue}
 \DeclareOption{11pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitletrue}
 \DeclareOption{12pt}{\PassOptionsToClass{\CurrentOption}{memoir}\bigtitlefalse}
+\DeclareOption{boxlink}{\colourlinksfalse}
 \DeclareOption{single}{\changespfalse\doublespfalse}
 \DeclareOption{onehalf}{\changesptrue\doublespfalse}
 \DeclareOption{double}{\changesptrue\doublesptrue}
@@ -92,10 +109,12 @@
 \DeclareOption{traditional}{\PassOptionsToClass{letterpaper}{memoir}\widemarginstrue}
 \DeclareOption*{\PackageWarning{ugthesis}{Unknown Option '\CurrentOption'}}
 
-\ExecuteOptions{10pt,final,single,modern}
+\ExecuteOptions{10pt,single,modern}
 \ProcessOptions\relax
 
-\LoadClass[openany,oneside]{memoir}
+\LoadClass[oneside]{memoir}
+
+\RequirePackage{hyperref}
 
 %%
 %% Commands defined by this class.  They should all occur in the preamble.  
@@ -117,6 +136,8 @@
 \newcommand*{\degreeprogram}[1]{\def\@degreeprogram{#1}}
 \newcommand*{\degreemonth}[1]{\def\@degreemonth{#1}}
 \newcommand*{\degreeyear}[1]{\def\@degreeyear{#1}}
+\newcommand*{\thesissubject}[1]{\def\@thesissubject{#1}\thesissubjecttrue}
+\newcommand*{\thesiskeywords}[1]{\def\@thesiskeywords{#1}\thesiskeywordstrue}
 
 %%
 %% Initial values for all of the fields needed on the title page and abstract.
@@ -138,6 +159,47 @@
 \newcommand*{\acknowledgename}{Acknowledgements}
 \newcommand*{\algorithmname}{Algorithm}
 \newcommand*{\listalgorithmname}{List of Algorithms}
+
+%%
+%% Setup the hyperlinks.  Set the link colour to blue for the cross references
+%% and contents entries, instead of the default red.  Since grad studies 
+%% requires that the links not be visible on the final thesis submission, they
+%% will be hidden if the global ``final'' option is specified.  By default
+%% hyperref draws a coloured box around the hyperlinks, which can make things
+%% like punctuation difficult to see.  The thesis style overrides the default
+%% behaviour and colours the test instead.  Use the ``boxlink'' option to
+%% to restore the default behaviour.
+%%
+
+\hypersetup{linkcolor=blue, linkbordercolor=0 0 1}
+
+\iffinal
+	\hypersetup{hidelinks}
+\else
+	\ifcolourlinks
+		\hypersetup{colorlinks=true}
+	\fi
+\fi
+
+%%
+%% Fill in the PDF document properties.  Wait until \begin{document} is called
+%% to have the best chance of having the values populated.  Use degreeprogram
+%% if the optional thesissubject is not specified.  Keywords are optional.
+%%
+
+\AtBeginDocument{
+	\hypersetup{pdfauthor=\@author, pdftitle=\@title}
+	
+	\ifthesissubject
+		\hypersetup{pdfsubject=\@thesissubject}
+	\else
+		\hypersetup{pdfsubject=\@degreeprogram}
+	\fi
+
+	\ifthesiskeywords
+		\hypersetup{pdfkeywords=\@thesiskeywords}
+	\fi
+}
 
 %%
 %% The University of Guelph Thesis requirements state that there must be at
