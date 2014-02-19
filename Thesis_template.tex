@@ -1,0 +1,66 @@
+%%
+%% University of Guelph Thesis Template
+%%
+%% This template outlines the structure of a thesis conforming to the 
+%% University of Guelph thesis style guidelines, using the included thesis 
+%% class.  The file has been verbosely commented to make it as 
+%% self-explanatory as possible.  Additional documentation for the options and
+%% commands for the thesis class is included in the README.txt and in the 
+%% comments in the class file.
+%%
+%% For brevity and simplicity, this template assumes that you will structure 
+%% your thesis by placing each element (individual chapters, abstract, 
+%% acknowledgements, etc.) into its own file and including it here.  All of 
+%% the components of a thesis (required and optional) have been listed here 
+%% in the proper order.  Optional components have been commented out.  You 
+%% need to replace the text contained in angle brackets with values 
+%% appropriate to your thesis and otherwise modify this file to suit your 
+%% needs (including possibly removing these comments).
+%%
+
+%% <options>:  Leave blank for the defaults (10pt, single spaced, wide 
+%%             margins).  Specify 12pt if you want to be nice to your 
+%%             reader/committee, and add traditional, double if you want the 
+%%             19th century look.  For final submission specify final to hide 
+%%             the hyperlinks (required by grad studies)
+\documentclass[<options>]{ugthesis}
+\title{<Title of thesis>}
+\author{<Your name>}
+\advisor{<Adviser's name>} % or <Adviser's Name \\ Co-Adviser's Name>
+\degree{Name of degree}
+\degreemonth{<Month of publication>}
+\degreeprogram{<Name of program>}
+\degreeyear{<Year of publication>}
+%\thesissubject{<subject>}
+%\thesiskeywords{<keywords>}
+
+%\usepackage{graphicx}
+%\usepackage{<additional packages>}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\include{Abstract}
+%\include{Dedication}
+\include{Acknowledgements}
+
+\tableofcontents
+%\listoftables
+%\listoffigures
+
+\mainmatter
+%\include{Chapter1}
+%\include{Chapter2}
+%\include{Chapter3}
+%\include{Chapter4}
+%\include{Chapter5}
+
+%\appendix
+%\include{Appendix1}
+
+%% <style>: Common values are: IEEEtran (IEEE transactions format)
+\bibliographystyle{<style>}
+\bibliography{<Bibtex file name without extension>}
+
+\end{document}
